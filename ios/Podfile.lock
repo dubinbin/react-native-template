@@ -7,6 +7,15 @@ PODS:
   - hermes-engine (0.75.2):
     - hermes-engine/Pre-built (= 0.75.2)
   - hermes-engine/Pre-built (0.75.2)
+  - MapboxCommon (23.10.1)
+  - MapboxCoreMaps (10.18.0):
+    - MapboxCommon (~> 23.10)
+  - MapboxMaps (10.18.2):
+    - MapboxCommon (= 23.10.1)
+    - MapboxCoreMaps (= 10.18.0)
+    - MapboxMobileEvents (= 1.0.10)
+    - Turf (= 2.8.0)
+  - MapboxMobileEvents (1.0.10)
   - RCT-Folly (2024.01.01.00):
     - boost
     - DoubleConversion
@@ -1497,7 +1506,19 @@ PODS:
     - React-logger (= 0.75.2)
     - React-perflogger (= 0.75.2)
     - React-utils (= 0.75.2)
+  - rnmapbox-maps (10.1.29):
+    - MapboxMaps (~> 10.18.2)
+    - React
+    - React-Core
+    - rnmapbox-maps/DynamicLibrary (= 10.1.29)
+    - Turf
+  - rnmapbox-maps/DynamicLibrary (10.1.29):
+    - MapboxMaps (~> 10.18.2)
+    - React
+    - React-Core
+    - Turf
   - SocketRocket (0.7.0)
+  - Turf (2.8.0)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -1564,11 +1585,17 @@ DEPENDENCIES:
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "rnmapbox-maps (from `../node_modules/@rnmapbox/maps`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
+    - MapboxCommon
+    - MapboxCoreMaps
+    - MapboxMaps
+    - MapboxMobileEvents
     - SocketRocket
+    - Turf
 
 EXTERNAL SOURCES:
   boost:
@@ -1694,6 +1721,8 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  rnmapbox-maps:
+    :path: "../node_modules/@rnmapbox/maps"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -1704,6 +1733,10 @@ SPEC CHECKSUMS:
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
   glog: 69ef571f3de08433d766d614c73a9838a06bf7eb
   hermes-engine: 3b6e0717ca847e2fc90a201e59db36caf04dee88
+  MapboxCommon: 0ff437e44988da6856e280d00ffb266564ed0487
+  MapboxCoreMaps: f1bd9405f5b9d3e343f2fe4138775299699a22fb
+  MapboxMaps: e76b14f52c54c40b76ddecd04f40448e6f35a864
+  MapboxMobileEvents: de50b3a4de180dd129c326e09cd12c8adaaa46d6
   RCT-Folly: 4464f4d875961fce86008d45f4ecf6cef6de0740
   RCTDeprecation: 34cbf122b623037ea9facad2e92e53434c5c7422
   RCTRequired: 24c446d7bcd0f517d516b6265d8df04dc3eb1219
@@ -1759,9 +1792,11 @@ SPEC CHECKSUMS:
   React-utils: 81a715d9c0a2a49047e77a86f3a2247408540deb
   ReactCodegen: 60973d382704c793c605b9be0fc7f31cb279442f
   ReactCommon: 6ef348087d250257c44c0204461c03f036650e9b
+  rnmapbox-maps: 69a746941da5322f489052cc693a11bb1d12c9d6
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
+  Turf: aa2ede4298009639d10db36aba1a7ebaad072a5e
   Yoga: a1d7895431387402a674fd0d1c04ec85e87909b8
 
-PODFILE CHECKSUM: 614fdb6519729ed992ddb38ba50cd075866d3916
+PODFILE CHECKSUM: 92c581548e8005643e0efd5ac92a52335000661e
 
 COCOAPODS: 1.15.2

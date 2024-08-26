@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -16,6 +16,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import MapboxGL from '@rnmapbox/maps';
 
 import {
   Colors,
@@ -29,19 +30,19 @@ type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
+function Section({ children }: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+
+  useEffect(()=>{
+    MapboxGL.setAccessToken('');
+   },[]);
+
+
   return (
     <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
+      <View style={styles.container}>
+        <MapboxGL.MapView style={styles.map} />
+      </View>
       <Text
         style={[
           styles.sectionDescription,
@@ -112,6 +113,13 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  container: {
+    height: 300,
+    width: 300,
+  },
+  map: {
+    flex: 1,
   },
 });
 
